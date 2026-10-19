@@ -3,12 +3,11 @@
     --color-verde: #1E7B40;    
     --color-amarillo: #E8D34B; 
     --color-morado: #A382C3;   
-    --color-texto: #333333;
+    --color-texto: #2b2b2b; /* Color de texto más oscuro y elegante */
     --color-fondo-claro: #FFFFFF;
-    --color-fondo-gris: #F8F9FA;
+    --color-fondo-gris: #F4F7F6; /* Un gris ligeramente azulado y moderno */
 }
 
-/* CORRECCIÓN 1: Aquí cambiamos el "-" por un "*" */
 * {
     margin: 0;
     padding: 0;
@@ -16,60 +15,72 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Configuramos el body para que el footer siempre quede abajo */
+/* Letra base más grande (18px) y alineación para footer */
 body {
     color: var(--color-texto);
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 18px; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--color-fondo-gris);
 }
 
-/* Esta clase empuja el footer hacia abajo */
 .contenido-principal {
     flex-grow: 1;
 }
 
-/* Navegación */
+/* Navegación más llamativa */
 nav {
     background-color: var(--color-fondo-claro);
-    padding: 0.5rem 2rem;
+    padding: 0.8rem 2rem; 
     position: sticky;
     top: 0;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-bottom: 3px solid var(--color-amarillo);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra más pronunciada */
+    border-bottom: 4px solid var(--color-amarillo); /* Borde amarillo resplandeciente */
 }
 
+/* LOGO MÁS GRANDE */
 .logo {
-    height: 70px;
+    height: 100px; 
     width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05); /* El logo crece un 5% al pasar el mouse */
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem; /* Más separación entre opciones */
 }
 
+/* Enlaces del menú tipo botón */
 nav a {
     color: var(--color-verde);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    font-weight: 700;
+    font-size: 1.2rem; /* Letra del menú más grande */
+    transition: all 0.3s ease;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
 }
 
 nav a:hover {
-    color: var(--color-morado);
+    color: white;
+    background-color: var(--color-morado); /* Fondo morado al pasar el mouse */
+    box-shadow: 0 4px 10px rgba(163, 130, 195, 0.4);
 }
 
 /* Secciones Generales */
 section {
-    padding: 5rem 2rem;
+    padding: 6rem 2rem; /* Más respiro arriba y abajo */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,52 +90,61 @@ section {
 .seccion-gris { background-color: var(--color-fondo-gris); }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px; /* Contenedor más ancho para pantallas grandes */
     width: 100%;
 }
 
+/* Títulos gigantes y en mayúsculas */
 h1, h2 {
     color: var(--color-verde);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    font-size: 2.5rem; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Textos introductorios más grandes */
 .intro-text, .subtitle {
     text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    color: #555;
+    font-size: 1.3rem; 
+    margin-bottom: 3.5rem;
+    color: #444;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Grid de Infraestructura y Servicios */
 .infraestructura-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 2rem; 
 }
 
+/* Tarjetas mucho más atractivas */
 .card {
     background: var(--color-fondo-claro);
-    padding: 3rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 3.5rem 2rem;
+    border-radius: 12px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Sombra elegante */
     text-align: center;
-    border-top: 4px solid var(--color-verde);
-    transition: all 0.4s ease;
+    border-top: 5px solid var(--color-verde);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animación con efecto rebote */
     position: relative; 
     overflow: hidden; 
 }
 
-/* Estado del texto por defecto */
 .card h3 {
     color: var(--color-texto);
-    font-size: 1.1rem;
+    font-size: 1.3rem; 
+    font-weight: 700;
     position: relative;
     z-index: 2;
     transition: color 0.3s ease;
 }
 
-/* Configuración de la imagen oculta */
+/* Configuración de las imágenes al pasar el mouse */
 .card-img-hover {
     position: absolute;
     top: 0;
@@ -133,16 +153,17 @@ h1, h2 {
     height: 100%;
     object-fit: cover;
     opacity: 0; 
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease, transform 0.5s ease;
     z-index: 1; 
-    filter: brightness(0.4); 
-    transform: scale(1.1); 
+    filter: brightness(0.35); /* Aún más oscuras para resaltar la letra blanca */
+    transform: scale(1.15); 
 }
 
-/* --- EFECTOS HOVER AL PASAR EL MOUSE --- */
+/* --- EFECTOS HOVER IMPACTANTES --- */
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-12px); /* Se levanta mucho más al pasar el mouse */
     border-top-color: var(--color-amarillo);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
 }
 
 .card:hover .card-img-hover {
@@ -150,47 +171,58 @@ h1, h2 {
     transform: scale(1); 
 }
 
-/* CORRECCIÓN 2: Si la tarjeta NO tiene imagen (como las de servicios), el texto se pone Verde */
 .card:hover h3 {
     color: var(--color-verde); 
 }
 
-/* Pero si la tarjeta SÍ tiene imagen (la imagen está justo antes del h3), el texto se pone Blanco */
 .card:hover .card-img-hover + h3 {
     color: white; 
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8); 
 }
 
-/* Contacto */
+/* Contacto - Completamente renovado */
 .contacto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
-    background: var(--color-fondo-gris);
-    padding: 3rem;
-    border-radius: 12px;
-    border: 1px solid #eaeaea;
+    background: linear-gradient(135deg, var(--color-fondo-claro), var(--color-fondo-gris));
+    padding: 4rem;
+    border-radius: 16px;
+    border: 2px solid var(--color-amarillo);
+    box-shadow: 0 10px 30px rgba(232, 211, 75, 0.2); /* Sombra amarilla resplandeciente */
 }
 
 .contacto-item {
     text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.contacto-item:hover {
+    transform: translateY(-5px);
 }
 
 .contacto-item h3 {
     color: var(--color-verde);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
 }
 
 .contacto-item a {
     color: var(--color-morado);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-weight: 800;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
 .contacto-item a:hover {
-    color: var(--color-amarillo);
+    color: var(--color-verde);
 }
 
 .telefono h3 {
@@ -198,25 +230,33 @@ h1, h2 {
 }
 .telefono a {
     color: var(--color-texto);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
-/* Footer */
+/* Footer degradado */
 footer {
-    background: var(--color-verde);
+    background: linear-gradient(90deg, var(--color-verde), #14592d); 
     color: white;
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem;
+    font-size: 1.1rem;
 }
 
-/* Responsividad */
+/* Responsividad mejorada para celulares */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 1rem;
+    }
+    .logo {
+        height: 80px; 
+    }
+    h1, h2 {
+        font-size: 2rem;
     }
 }
