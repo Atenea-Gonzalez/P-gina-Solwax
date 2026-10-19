@@ -192,13 +192,18 @@ h1, h2 {
     box-shadow: 0 10px 30px rgba(232, 211, 75, 0.2); /* Sombra amarilla resplandeciente */
 }
 
-.contacto-item {
-    text-align: center;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+.contacto-item a {
+    color: var(--color-morado);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    
+    /* --- LÍNEAS NUEVAS PARA EVITAR QUE SE SALGA --- */
+    word-break: break-word; 
+    overflow-wrap: break-word;
+    display: inline-block;
+    width: 100%;
 }
 
 .contacto-item:hover {
